@@ -27,3 +27,17 @@ az network nsg rule create \
   --source-address-prefixes <SEU_IP>/32 \
   --destination-address-prefixes '*' \
   --description "Permitir RDP apenas do IP da casa"
+
+  az network nsg rule create \
+  --resource-group AzureCorp-RG \
+  --nsg-name AzureCorp-NSG \
+  --name Allow-HTTP \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 1010 \
+  --source-address-prefixes '*' \
+  --source-port-ranges '*' \
+  --destination-address-prefixes '*' \
+  --destination-port-ranges 80 \
+  --access Allow \
+  --description "Permitir acesso HTTP (porta 80)"
